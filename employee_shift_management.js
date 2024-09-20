@@ -24,3 +24,12 @@ function assignShift(employeeName, shiftDay, shiftHours) {
      else {
         assignedEmployee.shifts.push({ day: shiftDay, hours: shiftHours });
         console.log(`${shiftHours} hours shift on ${shiftDay} was assigned to ${employeeName}!`)}};
+
+//Task 4 - Create a Function to Calculate Total Hours Worked
+function calculateTotalHours (employeeName){
+    let assignedEmployee = employees.find(emp => emp.name === employeeName);
+    if (!assignedEmployee) {
+        console.log(`Employee ${employeeName} not found.`);
+        return 0;}
+   let totalHours=  assignedEmployee.shifts.reduce((total, shift) => total+shift.hours,0)
+    return totalHours}//Calculate the total hour wored for one employee
