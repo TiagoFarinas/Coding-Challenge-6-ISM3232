@@ -33,3 +33,12 @@ function calculateTotalHours (employeeName){
         return 0;}
    let totalHours=  assignedEmployee.shifts.reduce((total, shift) => total+shift.hours,0)
     return totalHours}//Calculate the total hour wored for one employee
+
+//Task 5 - Create a Function to List Employees with Free Days
+function listAvailableEmployees(day) {
+    console.log(`Available employees on ${day}:`);
+    const availableEmployees = employees.filter(emp => {
+        return emp.shifts.every(shift => shift.day !== day)});
+    if (availableEmployees.length > 0) {
+        availableEmployees.forEach(emp => console.log(emp.name))}
+         else {console.log(`No employees are available on ${day}.`)}};
